@@ -1,12 +1,12 @@
 const User = require("../models/User");
 const Userlist = require("../models/Userlist");
-const Category = require("../models/Category");
-const Inventory = require("../models/Inventory");
+const Category = require("../models/Categories");
+const Inventory = require("../models/Inventories");
 const List = require("../models/List");
 
 exports.getHomePage = (req, res) => {
   // Fetch data if necessary, then render view
-  res.render("index");
+  res.render("login");
 };
 
 exports.getUserProfilePage = async (req, res) => {
