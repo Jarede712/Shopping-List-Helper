@@ -21,6 +21,10 @@ const inventoryData = [
     inventory_name: 'paper towels',
     category_id: 5,
   },
+  {
+    inventory_name: 'beef',
+    category_id: 3,
+  },
 ];
 
 const seedInventory = () => Inventory.bulkCreate(inventoryData);
