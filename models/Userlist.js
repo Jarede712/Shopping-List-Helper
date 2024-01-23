@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class Userlist extends Model {}
 
-User.init(
+Userlist.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,13 +11,19 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    list_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'list',
+        key: 'list_id'
+      }
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    inventory_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'inventory',
+        key: 'id'
+      }
     },
   },
   {
@@ -25,8 +31,8 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'userlist',
   }
 );
 
-module.exports = User;
+module.exports = Userlist;
