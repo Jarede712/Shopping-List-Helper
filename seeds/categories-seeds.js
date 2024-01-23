@@ -14,6 +14,10 @@ const categoryData = [
     category_name: 'dry',
   },
   {
+    category_name: 'frozen',
+
+  },
+  {
     category_name: 'other',
   },
 ];
