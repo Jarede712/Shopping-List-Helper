@@ -1,0 +1,8 @@
+:root {
+    --primaryColor: #0bb84a;
+    --secondaryColor: #07692b;;
+    --tertiaryColor: #dca418;
+    --buttonColor: #686d70;
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    --roundedCorners: 7px;
+}
