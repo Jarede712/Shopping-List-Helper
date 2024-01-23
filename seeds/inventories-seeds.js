@@ -2,16 +2,24 @@ const { Inventory } = require('../models');
 
 const inventoryData = [
   {
-    inventory_name: 'aaa',
+    inventory_name: 'milk',
+    category_id: 2,
+  },
+  {
+    inventory_name: 'apples',
     category_id: 1,
   },
   {
-    inventory_name: 'bbb',
-    category_id: 1,
+    inventory_name: 'chicken',
+    category_id: 3,
   },
   {
-    inventory_name: 'ccc',
-    category_id: 1,
+    inventory_name: 'flour',
+    category_id: 4,
+  },
+  {
+    inventory_name: 'paper towels',
+    category_id: 5,
   },
 ];
 
