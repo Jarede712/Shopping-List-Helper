@@ -9,6 +9,9 @@
     "watch": "nodemon server.js",
     "seed": "node seeds/index.js"
   },
+  "engines": {
+    "node": "16.20.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jarede712/shopping-list-helper.git"
