@@ -74,7 +74,7 @@ const inventoryData = [
     category_id: 1,
   },
   {
-    inventory_name: 'mangos',
+    inventory_name: 'mangoes',
     category_id: 1,
   },  
   {
