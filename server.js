@@ -23,12 +23,13 @@ app.use(
 );
 
 // Handlebars middleware
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
+const path = require("path");
 
 app.use("/api", apiRoutes); // '/api' is the base URL for API routes
 app.use("/", htmlRoutes); // '/' is the base URL for HTML routes
