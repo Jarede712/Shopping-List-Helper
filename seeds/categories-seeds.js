@@ -2,13 +2,23 @@ const { Category } = require('../models');
 
 const categoryData = [
   {
-    category_name: 'aaa',
+    category_name: 'produce',
   },
   {
-    category_name: 'bbb',
+    category_name: 'dairy',
   },
   {
-    category_name: 'ccc',
+    category_name: 'protein',
+  },
+  {
+    category_name: 'dry',
+  },
+  {
+    category_name: 'frozen',
+
+  },
+  {
+    category_name: 'other',
   },
 ];
 
