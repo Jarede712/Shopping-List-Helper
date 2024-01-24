@@ -3,7 +3,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const sequelize = require("./config/connection"); // Updated path to database connection
 const session = require("express-session");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -23,12 +23,13 @@ app.use(
 );
 
 // Handlebars middleware
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
+const path = require("path");
 
 app.use("/api", apiRoutes); // '/api' is the base URL for API routes
 app.use("/", htmlRoutes); // '/' is the base URL for HTML routes
