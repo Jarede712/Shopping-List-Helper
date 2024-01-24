@@ -1,5 +1,5 @@
 {
-  "name": "recipe-finder",
+  "name": "shopping-list-helper",
   "version": "1.0.0",
   "description": "A recipe finder application that allows users to find, create, store, and share recipes and connect with people in their group.",
   "main": "server.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jarede712/recipe-finder.git"
+    "url": "git+https://github.com/Jarede712/shopping-list-helper.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jarede712/recipe-finder/issues"
+    "url": "https://github.com/Jarede712/shopping-list-helper/issues"
   },
-  "homepage": "https://github.com/Jarede712/recipe-finder#readme",
+  "homepage": "https://github.com/Jarede712/shopping-list-helper#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
