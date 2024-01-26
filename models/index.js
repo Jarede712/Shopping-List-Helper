@@ -1,4 +1,26 @@
 // import models
+<<<<<<< HEAD
+const Inventory = require('./Inventories');
+const Categories = require('./Categories');
+const List = require('./List');
+const User = require('./User');
+const Userlist = require('./Userlist');
+
+
+Inventory.belongsTo(Categories, {
+  foreignKey: 'category_id'
+});
+
+
+Categories.hasMany(Inventory, {
+  foreignKey: 'category_id',
+  onDelete: 'SET NULL'
+})
+
+
+List.belongsTo(User, {
+  foreignKey: 'user_id'
+=======
 const Inventory = require("./Inventories");
 const Category = require("./Categories");
 const List = require("./List");
@@ -12,6 +34,7 @@ Inventory.belongsTo(Category, {
 Category.hasMany(Inventory, {
   foreignKey: "category_id",
   onDelete: "SET NULL",
+>>>>>>> 089ddf66a427cc2b3882c5ec9969ee64155c1cd6
 });
 
 List.hasMany(Userlist, {
@@ -39,13 +62,13 @@ User.hasMany(List, {
   onDelete: "SET NULL",
 });
 
-// Products belongToMany Tags (through ProductTag)
+// List belongToMany Inventory (through ProductTag)
 List.belongsToMany(Inventory, {
   through: Userlist,
   foreignKey: "list_id",
 });
 
-// Tags belongToMany Products (through ProductTag)
+// Inventory belongToMany List (through ProductTag)
 Inventory.belongsToMany(List, {
   through: Userlist,
   foreignKey: "inventory_id",
@@ -53,7 +76,7 @@ Inventory.belongsToMany(List, {
 
 module.exports = {
   Inventory,
-  Category,
+  Categories,
   List,
   User,
   Userlist,

@@ -12,6 +12,15 @@ router.get("", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+  // Get all userlists
+  router.get("/", async (req, res) => {
+    try {
+      const userlists = await Userlist.findAll({ include: [List, Inventory] });
+      res.json(userlists);
+    } catch (error) {
+      res.status(500).json(error);
+=======
 // Get a single userlist by its id
 router.get("/:id", async (req, res) => {
   try {
@@ -21,6 +30,7 @@ router.get("/:id", async (req, res) => {
     });
     if (!userlist) {
       return res.status(404).json({ message: "Userlist not found" });
+>>>>>>> 089ddf66a427cc2b3882c5ec9969ee64155c1cd6
     }
     res.json(userlist);
   } catch (error) {
@@ -66,4 +76,4 @@ router.delete(":id", async (req, res) => {
   }
 });
 
-module.exports = router; //userlistController;
+module.exports = router; 
