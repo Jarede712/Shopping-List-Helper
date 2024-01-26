@@ -1,7 +1,4 @@
 const router = require('express').Router();
-//const categoryRoutes = require('./category-routes');
-//const inventoryRoutes = require('./product-routes');
-//const listRoutes = require('./tag-routes');
 
 const userController = require("./userController.js");
 const userlistController = require("./userListController.js");

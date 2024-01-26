@@ -3,7 +3,7 @@ const { Userlist, List, Inventory } = require("../../models");
 
 
   // Get all userlists
-  router.get("", async (req, res) => {
+  router.get("/", async (req, res) => {
     try {
       const userlists = await Userlist.findAll({ include: [List, Inventory] });
       res.json(userlists);
@@ -67,4 +67,4 @@ const { Userlist, List, Inventory } = require("../../models");
   });
 
 
-module.exports = router; //userlistController;
+module.exports = router; 

@@ -66,4 +66,4 @@ const { List, User } = require("../../models");
     }
   });
 
-module.exports = router;//listController;
+module.exports = router;

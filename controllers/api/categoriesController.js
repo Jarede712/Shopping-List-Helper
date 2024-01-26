@@ -66,4 +66,4 @@ const { Categories } = require("../../models");
     }
   });
 
-module.exports = router; //categoriesController;
+module.exports = router; 

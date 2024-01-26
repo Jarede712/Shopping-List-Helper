@@ -66,4 +66,4 @@ const { Inventory, Categories } = require("../../models");
     }
   });
 
-module.exports = router; //inventoryController;
+module.exports = router; 
