@@ -1,23 +1,55 @@
-const { User } = require('../models');
+const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
-const userData = [
+class userData extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
+
+
+userData.init(
   {
-    username: 'aaaa',
-    password: 'cccc',
-    email: 'aaaa',
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [6],
+      },
+    },
   },
   {
-    username: 'bbbb',
-    password: 'cccc',
-    email: 'bbbb',
-  },
-  {
-    username: 'ccccc',
-    password: 'cccc',
-    email: 'cccc',
-  },
-];
+    hooks: {
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+    },
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
+  }
+);
 
-const seedUser = () => User.bulkCreate(userData);
-
-module.exports = seedUser;
+module.exports = userData;
