@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 
 ///fix login: function
 
-<<<<<<< HEAD
   // Get all user
   router.get("/", async (req, res) => {
     try {
@@ -25,18 +24,6 @@ const bcrypt = require("bcrypt");
       res.status(400).json(error);
     }
   });
-=======
-// Create a new user
-router.post("/", async (req, res) => {
-  try {
-    const newUser = await User.create(req.body);
-    res.status(201).json(newUser);
-  } catch (error) {
-    console.error(error);
-    res.status(400).json(error);
-  }
-});
->>>>>>> 089ddf66a427cc2b3882c5ec9969ee64155c1cd6
 
 // Authenticate a user
 //login: async (req, res) => {
@@ -98,8 +85,5 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
+
 module.exports = router;
-=======
-module.exports = router; //userController;
->>>>>>> 089ddf66a427cc2b3882c5ec9969ee64155c1cd6
