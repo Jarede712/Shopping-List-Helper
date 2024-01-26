@@ -9,21 +9,29 @@
 </head>
 
 <body>
+
     <header>
-        <h1>Welcome to the Shopping List Helper</h1>
         <nav>
             <ul>
                 <li><a href="/pantry">Pantry</a></li>
                 <li><a href="/shoppingList">Shopping List</a></li>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/login">Login</a></li>
-                <!--The logout button should not show up if they are not logged in-->
-                <li><a href="/main">Logout</a></li>  
+
+                <!--TO DO: The logout button should only show up if the user is logged in-->
+                <li class="hide"><a href="/main">Logout</a></li>  
             </ul>
         </nav>
+    </header>
+
+    <div class="title"> 
+        <h1>Shopping List Helper</h1>
+    </div>
+
     <main>
         {{{ body }}}
     </main>
+    
     <footer>
     </footer>
 </body>

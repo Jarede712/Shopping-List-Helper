@@ -1,8 +1,125 @@
 :root {
-    --primaryColor: #0bb84a;
-    --secondaryColor: #07692b;;
-    --tertiaryColor: #dca418;
+    --primaryColor: #4ed89a;
+    --secondaryColor: #278b61;;
+    --tertiaryColor: #a5b4b4;
     --buttonColor: #686d70;
     --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     --roundedCorners: 7px;
+}
+
+body {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+header {
+    background-color: var(--secondaryColor);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 7px 7px 0 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li.hide {
+    display: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    background-color: var(--tertiaryColor);
+    color: var(--secondaryColor);
+    border-radius: 0 0 7px 7px;
+}
+
+.hero-image {
+    background-image: url('/public/assets/images/groceries.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px; 
+}
+
+.hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-heading {
+    color: white;
+    font-size: 36px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    padding: 2%;
+    margin: 1%;
+    border: 1px solid #ccc; 
+    border-radius: var(--roundedCorners); 
+    background-color: #f9f9f9; 
+    box-shadow: var(--shadow); 
+    text-align: start; 
+    font-size: 18px;
+}
+
+.box button {
+    width: 150px;
+}
+
+button {
+    margin: 2%;
+    padding: 2%;
+}
+
+.box label {
+    display: flex;
+    width: 100%;
+    text-align: start;
+    margin-right: 1%;
+}
+
+.box input {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
