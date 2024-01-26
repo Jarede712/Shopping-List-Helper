@@ -1,22 +1,23 @@
-const { Inventory, Category } = require("../models");
+const router = require('express').Router();
+const { Inventory, Categories } = require("../../models");
 
-const inventoryController = {
+
   // Get all items
-  getAllItems: async (req, res) => {
+  router.get("/inventory", async (req, res) => {
     try {
-      const items = await Inventory.findAll({ include: Category });
+      const items = await Inventory.findAll({ include: Categories });
       res.json(items);
     } catch (error) {
       res.status(500).json(error);
     }
-  },
+  });
 
   // Get a single item by its id
-  getItemById: async (req, res) => {
+  router.get("/inventory/:id", async (req, res) => {
     try {
       const item = await Inventory.findOne({
         where: { id: req.params.id },
-        include: Category,
+        include: Categories,
       });
       if (!item) {
         return res.status(404).json({ message: "Item not found" });
@@ -25,20 +26,20 @@ const inventoryController = {
     } catch (error) {
       res.status(500).json(error);
     }
-  },
+  });
 
   // Create a new item
-  createItem: async (req, res) => {
+  router.post("/inventory", async (req, res) => {
     try {
       const newItem = await Inventory.create(req.body);
       res.status(201).json(newItem);
     } catch (error) {
       res.status(400).json(error);
     }
-  },
+  });
 
   // Update an existing item
-  updateItem: async (req, res) => {
+  router.put("/inventory/:id", async (req, res) => {
     try {
       const updatedItem = await Inventory.update(req.body, {
         where: {
@@ -49,10 +50,10 @@ const inventoryController = {
     } catch (error) {
       res.status(400).json(error);
     }
-  },
+  });
 
   // Delete an item
-  deleteItem: async (req, res) => {
+  router.delete("/inventory/:id", async (req, res) => {
     try {
       await Inventory.destroy({
         where: {
@@ -63,7 +64,6 @@ const inventoryController = {
     } catch (error) {
       res.status(400).json(error);
     }
-  },
-};
+  });
 
 module.exports = inventoryController;
