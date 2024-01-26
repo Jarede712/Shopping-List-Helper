@@ -1,16 +1,18 @@
-const { User } = require("../models");
+const router = require('express').Router();
+const { User } = require("../../models");
 const bcrypt = require("bcrypt");
 
-const userController = {
+///fix login: function
+
   // Create a new user
-  create: async (req, res) => {
+  router.post("/users", async (req, res) => {
     try {
       const newUser = await User.create(req.body);
       res.status(201).json(newUser);
     } catch (error) {
       res.status(400).json(error);
     }
-  },
+  });
 
   // Authenticate a user
   login: async (req, res) => {
@@ -43,7 +45,7 @@ const userController = {
   },
 
   // Update a user's information
-  update: async (req, res) => {
+  router.put("/users/:id", async (req, res) => {
     try {
       const updatedUser = await User.update(req.body, {
         where: {
@@ -54,10 +56,10 @@ const userController = {
     } catch (error) {
       res.status(400).json(error);
     }
-  },
+  });
 
   // Delete a user
-  delete: async (req, res) => {
+  router.delete("/users/:id", async (req, res) => {
     try {
       await User.destroy({
         where: {
@@ -68,7 +70,6 @@ const userController = {
     } catch (error) {
       res.status(400).json(error);
     }
-  },
-};
+  });
 
 module.exports = userController;
