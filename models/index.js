@@ -14,6 +14,22 @@ Category.hasMany(Inventory, {
   onDelete: "SET NULL",
 });
 
+List.hasMany(Userlist, {
+  foreignKey: "list_id",
+});
+
+Userlist.belongsTo(List, {
+  foreignKey: "list_id",
+});
+
+Inventory.hasMany(Userlist, {
+  foreignKey: "inventory_id",
+});
+
+Userlist.belongsTo(Inventory, {
+  foreignKey: "inventory_id",
+});
+
 List.belongsTo(User, {
   foreignKey: "user_id",
 });
