@@ -1,13 +1,36 @@
 <header>
     <h1>Your Shopping List</h1>
 </header>
-<div class="shopping-page">
-    <ul class="inventory-list">
-    </ul>
-</div>
 
-<div class="add-items">
-    <form action="<!-- add to shopping list-->" method="post">
+<section class="shopping-page">
+    <div class="produce">
+    <h2>Produce</h2>
+    <ul class="produce-list"></ul>
+    </div>
+        <div class="produce">
+    <h2>Dairy</h2>
+    <ul class="dairy-list"></ul>
+    </div>
+    <div class="protein">
+    <h2>Protein</h2>
+    <ul class="protein-list"></ul>
+    </div>
+        <div class="dry">
+    <h2>Dry Goods</h2>
+    <ul class="dry-list"></ul>
+    </div>
+        <div class="frozen">
+    <h2>Frozen</h2>
+    <ul class="frozen-list"></ul>
+    </div>
+    <div class="other">
+    <h2>Other</h2>
+    <ul class="other-list"></ul>
+    </div>
+</section>
+
+<section class="add-items">
+    <form> <!-- action=[add to shopping list] method=[post]-->
     <label for="name">Item Name:</label>
     <input type="text" id="name" name="name" required>
     <br>
@@ -31,4 +54,4 @@
     <button type="submit">Add to Shopping List</button>
     </form>
     -->
-</div>
+</section>
