@@ -3,7 +3,7 @@ const { List, User } = require("../../models");
 
 
   // Get all lists
-  router.get("/lists", async (req, res) => {
+  router.get("/", async (req, res) => {
     try {
       const lists = await List.findAll({ include: User });
       res.json(lists);
@@ -13,7 +13,7 @@ const { List, User } = require("../../models");
   }),
 
   // Get a single list by its id
-  router.get("/lists/:id", async (req, res) => {
+  router.get("/:id", async (req, res) => {
     try {
       const list = await List.findOne({
         where: { list_id: req.params.id },
@@ -29,7 +29,7 @@ const { List, User } = require("../../models");
   });
 
   // Create a new list
-  router.post("/lists", async (req, res) => {
+  router.post("/", async (req, res) => {
     try {
       const newList = await List.create(req.body);
       res.status(201).json(newList);
@@ -39,7 +39,7 @@ const { List, User } = require("../../models");
   });
 
   // Update an existing list
-  router.put("/lists/:id", async (req, res) => {
+  router.put("/:id", async (req, res) => {
     try {
       const updatedList = await List.update(req.body, {
         where: {
@@ -53,7 +53,7 @@ const { List, User } = require("../../models");
   });
 
   // Delete a list
-  router.delete("/lists/:id", async (req, res) => {
+  router.delete("/:id", async (req, res) => {
     try {
       await List.destroy({
         where: {
@@ -66,4 +66,4 @@ const { List, User } = require("../../models");
     }
   });
 
-module.exports = listController;
+module.exports = router;//listController;
