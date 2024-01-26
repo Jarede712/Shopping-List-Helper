@@ -10,10 +10,17 @@
 
 <body>
     <header>
-        <h1>
-            Shopping List Helper
-        </h1>
-    </header>
+        <h1>Welcome to the Shopping List Helper</h1>
+        <nav>
+            <ul>
+                <li><a href="/pantry">Pantry</a></li>
+                <li><a href="/shoppingList">Shopping List</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/login">Login</a></li>
+                <!--The logout button should not show up if they are not logged in-->
+                <li><a href="/main">Logout</a></li>  
+            </ul>
+        </nav>
     <main>
         {{{ body }}}
     </main>
