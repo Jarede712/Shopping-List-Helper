@@ -4,6 +4,7 @@ const Category = require("../models/Categories");
 const Inventory = require("../models/Inventories");
 const List = require("../models/List");
 
+
 exports.getHomePage = (req, res) => {
   // Fetch data if necessary, then render view
   res.render("login");

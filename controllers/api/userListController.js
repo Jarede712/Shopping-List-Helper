@@ -3,7 +3,7 @@ const { Userlist, List, Inventory } = require("../../models");
 
 
   // Get all userlists
-  router.get("/userlists", async (req, res) => {
+  router.get("", async (req, res) => {
     try {
       const userlists = await Userlist.findAll({ include: [List, Inventory] });
       res.json(userlists);
@@ -13,7 +13,7 @@ const { Userlist, List, Inventory } = require("../../models");
   });
 
   // Get a single userlist by its id
-  router.get("/userlists/:id",  async (req, res) => {
+  router.get("/:id",  async (req, res) => {
     try {
       const userlist = await Userlist.findOne({
         where: { id: req.params.id },
@@ -29,7 +29,7 @@ const { Userlist, List, Inventory } = require("../../models");
   });
 
   // Create a new userlist
-  router.post("/userlists", async (req, res) => {
+  router.post("/", async (req, res) => {
     try {
       const newUserlist = await Userlist.create(req.body);
       res.status(201).json(newUserlist);
@@ -39,7 +39,7 @@ const { Userlist, List, Inventory } = require("../../models");
   });
 
   // Update an existing userlist
-  router.put("/userlists/:id", async (req, res) => {
+  router.put("/:id", async (req, res) => {
     try {
       const updatedUserlist = await Userlist.update(req.body, {
         where: {
@@ -53,7 +53,7 @@ const { Userlist, List, Inventory } = require("../../models");
   });
 
   // Delete a userlist
-  router.delete("/userlists/:id", async (req, res) => {
+  router.delete(":id", async (req, res) => {
     try {
       await Userlist.destroy({
         where: {
@@ -67,4 +67,4 @@ const { Userlist, List, Inventory } = require("../../models");
   });
 
 
-module.exports = userlistController;
+module.exports = router; //userlistController;

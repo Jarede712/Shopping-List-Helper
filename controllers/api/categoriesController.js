@@ -4,7 +4,7 @@ const { Categories } = require("../../models");
 
 
   // Get all categories
-  router.get("/categories", async (req, res) => {
+  router.get("/", async (req, res) => {
     try {
       const categories = await Categories.findAll();
       res.json(categories);
@@ -14,7 +14,7 @@ const { Categories } = require("../../models");
   });
 
   // Get a single category by its id
-  router.get("/categories/:id", async (req, res) => {
+  router.get("/:id", async (req, res) => {
     try {
       const category = await Categories.findOne({
         where: { id: req.params.id },
@@ -29,7 +29,7 @@ const { Categories } = require("../../models");
   });
 
   // Create a new category
-  router.post("/categories", async (req, res) => {
+  router.post("/", async (req, res) => {
     try {
       const newCategory = await Categories.create(req.body);
       res.status(201).json(newCategory);
@@ -39,7 +39,7 @@ const { Categories } = require("../../models");
   });
 
   // Update an existing category
-  router.put("/categories/:id", async (req, res) => {
+  router.put("/:id", async (req, res) => {
     try {
       const updatedCategory = await Categories.update(req.body, {
         where: {
@@ -53,7 +53,7 @@ const { Categories } = require("../../models");
   });
 
   // Delete a category
-  router.delete("/categories/:id", async (req, res) => {
+  router.delete("/:id", async (req, res) => {
     try {
       await Categories.destroy({
         where: {
@@ -66,4 +66,4 @@ const { Categories } = require("../../models");
     }
   });
 
-module.exports = categoriesController;
+module.exports = router; //categoriesController;

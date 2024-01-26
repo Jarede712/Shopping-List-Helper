@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 ///fix login: function
 
   // Create a new user
-  router.post("/users", async (req, res) => {
+  router.post("/", async (req, res) => {
     try {
       const newUser = await User.create(req.body);
       res.status(201).json(newUser);
@@ -15,37 +15,37 @@ const bcrypt = require("bcrypt");
   });
 
   // Authenticate a user
-  login: async (req, res) => {
-    try {
-      const user = await User.findOne({
-        where: { username: req.body.username },
-      });
-      if (!user) {
-        return res.status(401).json({ message: "Login failed" });
-      }
-
-      const validPassword = await bcrypt.compare(
-        req.body.password,
-        user.password
-      );
-      if (!validPassword) {
-        return res.status(401).json({ message: "Login failed" });
-      }
+  //login: async (req, res) => {
+  //  try {
+  //    const user = await User.findOne({
+  //      where: { username: req.body.username },
+  //    });
+  //    if (!user) {
+  //      return res.status(401).json({ message: "Login failed" });
+  //    }
+//
+ //     const validPassword = await bcrypt.compare(
+  //      req.body.password,
+   //     user.password
+    //  );
+      //if (!validPassword) {
+        //return res.status(401).json({ message: "Login failed" });
+      //}
 
       // If the password is valid, create a new session for the user
-      req.session.user = {
-        id: user.id,
-        username: user.username,
-      };
+      //req.session.user = {
+        //id: user.id,
+       // username: user.username,
+      //};
 
-      res.json({ message: "Login successful", user: req.session.user });
-    } catch (error) {
-      res.status(500).json(error);
-    }
-  },
+      //res.json({ message: "Login successful", user: req.session.user });
+    //} catch (error) {
+      //res.status(500).json(error);
+   // }
+  //},
 
   // Update a user's information
-  router.put("/users/:id", async (req, res) => {
+  router.put("/:id", async (req, res) => {
     try {
       const updatedUser = await User.update(req.body, {
         where: {
@@ -59,7 +59,7 @@ const bcrypt = require("bcrypt");
   });
 
   // Delete a user
-  router.delete("/users/:id", async (req, res) => {
+  router.delete("/:id", async (req, res) => {
     try {
       await User.destroy({
         where: {
@@ -72,4 +72,4 @@ const bcrypt = require("bcrypt");
     }
   });
 
-module.exports = userController;
+module.exports = router;//userController;
