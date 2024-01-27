@@ -2,25 +2,15 @@ const router = require("express").Router();
 const { Userlist, List, Inventory } = require("../../models");
 
 // Get all userlists
-router.get("", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const userlists = await Userlist.findAll({ include: [List, Inventory] });
-    res.json(userlists);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json(error);
-  }
+   res.json(userlists);
+ } catch (error) {
+   res.status(500).json(error);
+ }
 });
 
-<<<<<<< HEAD
-  // Get all userlists
-  router.get("/", async (req, res) => {
-    try {
-      const userlists = await Userlist.findAll({ include: [List, Inventory] });
-      res.json(userlists);
-    } catch (error) {
-      res.status(500).json(error);
-=======
 // Get a single userlist by its id
 router.get("/:id", async (req, res) => {
   try {
@@ -30,7 +20,6 @@ router.get("/:id", async (req, res) => {
     });
     if (!userlist) {
       return res.status(404).json({ message: "Userlist not found" });
->>>>>>> 089ddf66a427cc2b3882c5ec9969ee64155c1cd6
     }
     res.json(userlist);
   } catch (error) {
@@ -63,7 +52,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete a userlist
-router.delete(":id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     await Userlist.destroy({
       where: {
