@@ -3,7 +3,7 @@ const { Inventory, Categories } = require("../../models");
 
 
   // Get all items
-  router.get("/inventory", async (req, res) => {
+  router.get("/", async (req, res) => {
     try {
       const items = await Inventory.findAll({ include: Categories });
       res.json(items);
@@ -13,7 +13,7 @@ const { Inventory, Categories } = require("../../models");
   });
 
   // Get a single item by its id
-  router.get("/inventory/:id", async (req, res) => {
+  router.get("/:id", async (req, res) => {
     try {
       const item = await Inventory.findOne({
         where: { id: req.params.id },
@@ -29,7 +29,7 @@ const { Inventory, Categories } = require("../../models");
   });
 
   // Create a new item
-  router.post("/inventory", async (req, res) => {
+  router.post("/", async (req, res) => {
     try {
       const newItem = await Inventory.create(req.body);
       res.status(201).json(newItem);
@@ -39,7 +39,7 @@ const { Inventory, Categories } = require("../../models");
   });
 
   // Update an existing item
-  router.put("/inventory/:id", async (req, res) => {
+  router.put("/:id", async (req, res) => {
     try {
       const updatedItem = await Inventory.update(req.body, {
         where: {
@@ -53,7 +53,7 @@ const { Inventory, Categories } = require("../../models");
   });
 
   // Delete an item
-  router.delete("/inventory/:id", async (req, res) => {
+  router.delete("/:id", async (req, res) => {
     try {
       await Inventory.destroy({
         where: {
@@ -66,4 +66,4 @@ const { Inventory, Categories } = require("../../models");
     }
   });
 
-module.exports = inventoryController;
+module.exports = router; 

@@ -1,23 +1,33 @@
-<div class="login">
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="login-username" name="username" required>
+<section class="login container">
+
+    <h2>Login</h2>
+
+        <form class="login box" action="/api/users/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="login-username" name="username" required>
         <br>
-        <label for="password">Password:</label>
-        <input type="password" id="login-password" name="password" required>
+            <label for="password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
         <br>
-    <button type="submit">Login</button>
-    </form>
-    <h1>Create a new account</h1>
-    <form>
-        <label for"email" >Enter Email: </label>
+            <button id="login-button" type="submit">Login</button>
+        </form>
+
+</section>
+
+<section class="sign-up container">
+
+    <h2>Create a new account</h2>
+
+    <form class="register box" action="/api/users" method="POST"> <!-- action=[register] method=[post]-->
+        <label for"email">Enter Email: </label>
         <input type="text" id="register-email" name="email" required>
-        <br>
-                <label for="username">Create a username:</label>
+    <br>
+        <label for="username">Create a username:</label>
         <input type="text" id="register-username" name="username" required>
-        <br>
+    <br>
         <label for="password">Choose a password:</label>
         <input type="password" id="register-password" name="password" required>
+    <br>
+        <button id="register-button" type="submit">Submit</button>
     </form>
-</div>
+</section>
