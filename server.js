@@ -17,12 +17,12 @@ app.use(express.static("public")); // make sure this directory exists
 // Session middleware
 app.use(
   session({
-    secret: process.env.SESSION_SECRET, // make sure this variable is in the .env file
-    resave: false,
-    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET,
+    resave: true, // change this to true
+    saveUninitialized: false, // change this to false
     cookie: {
-      secure: true,
-      maxAge: 60 * 60 * 1000, // 1 hour
+      secure: false, // change this to false
+      maxAge: 60 * 60 * 1000,
     },
     store: new SequelizeStore({
       db: sequelize,
