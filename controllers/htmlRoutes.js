@@ -5,6 +5,7 @@ const viewController = require("../controllers/viewController");
 
 // Home page route
 router.get("/", viewController.getHomePage);
+router.get("/home", viewController.getHomePage);
 
 // User profile page route
 //router.get("/users/:id", viewController.getUserProfilePage);
@@ -24,7 +25,7 @@ router.get("/profile", viewController.getProfilePage);
 //router.get("/inventory", viewController.getInventoryPage);
 router.get("/shoppingList", viewController.getShoppingListPage);
 
-router.get("/home", viewController.getHomePage);
+
 
 router.get("/categories", viewController.getCategoriesPage);
 
