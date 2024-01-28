@@ -14,22 +14,18 @@
         <nav>
             <ul>
                 <li><a href="/home">Home</a></li>
+
+                {{#unless logged_in}}
+                <li><a href="/login">Login</a></li>
+                {{/unless}}
+
                 {{#if logged_in}}
                 <li><a href="/pantry">Pantry</a></li>
                 <li><a href="/shoppingList">Shopping List</a></li>
                 <li><a href="/categories">Categories</a></li>
                 <li><a href="/profile">Profile</a></li>
+                <li><a href="/home">Logout</a></li> 
                 {{/if}}
-                <li><a href="/login">Login</a></li>
-                {{#if logged_in}}
-                <li><a href="/home">Logout</a></li>  <!-- class="hide"-->
-                {{/if}}
-                
-                
-
-                <!--TO DO: The logout button should only show up if the user is logged in-->
-    
-                
             </ul>
         </nav>
     </header>
