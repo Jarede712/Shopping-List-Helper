@@ -13,9 +13,6 @@ body {
     display: flex;
     flex-direction: column;
     margin: 2%;
-    background-image: url('/public/assets/images/groceries.jpg');
-    background-position: center;
-    background-size: cover;
 }
 
 header {
@@ -153,26 +150,6 @@ button {
     cursor: pointer; 
 }
 
-#login-button {
-    margin: 2%;
-    padding: 2%;
-}
-
-#register-button {
-    margin: 2%;
-    padding: 2%;
-}
-
-button:hover {
-    background-color: var(--primaryColor); 
-}
-
-select {
-    margin: 1%;
-    padding: 1%;
-    cursor: pointer;
-}
-
 .welcome-message {
     margin: 2%;
     padding: 2%;
@@ -187,10 +164,40 @@ select {
     border-radius: var(--roundedCorners);
 }
 
-#breeze {
+#tagline {
     background-color: var(--primaryColor);
     color: white;
     border-radius: var(--roundedCorners);
+}
+
+#login-button {
+    margin: 2%;
+    padding: 2%;
+}
+
+#register-button {
+    margin: 2%;
+    padding: 2%;
+}
+
+.user-profle.container {
+    margin: 2%;
+    padding: 1%;
+}
+
+.user-profile.container ul {
+        list-style-type: none;
+        border: 1px solid #ccc;
+}
+
+button:hover {
+    background-color: var(--primaryColor); 
+}
+
+select {
+    margin: 1%;
+    padding: 1%;
+    cursor: pointer;
 }
 
 .categories.container {
