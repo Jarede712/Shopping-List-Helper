@@ -25,6 +25,7 @@
   "homepage": "https://github.com/Jarede712/shopping-list-helper#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "connect-session-sequelize": "^7.0.4",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "express-handlebars": "^5.2.0",
