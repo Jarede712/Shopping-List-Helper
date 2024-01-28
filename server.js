@@ -20,7 +20,7 @@ app.use(
     secret: process.env.SESSION_SECRET, // make sure this variable is in the .env file
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: "auto" },
+    cookie: { secure: false },
     store: new SequelizeStore({
       db: sequelize,
     }),
