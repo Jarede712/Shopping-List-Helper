@@ -13,7 +13,7 @@
     </ul>
 </section>
 
-<section class="box user-changes">
+<section class="box user-changes" action="/api/users/:{{user.id}}" method="PUT">
         <form>
         <label for"email" >Change Email: </label>
         <input type="text" id="change-email" name="email" required>
@@ -23,5 +23,7 @@
         <br>
         <label for="password">Change password:</label>
         <input type="password" id="change-password" name="password" required>
+        <br>
+        <button id="update-button" type="submit">Update</button>
     </form>
 </section>
