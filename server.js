@@ -5,6 +5,8 @@ const sequelize = require("./config/connection"); // Updated path to database co
 const session = require("express-session");
 const PORT = process.env.PORT || 3001;
 
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const app = express();
 
 // Middleware
@@ -19,6 +21,9 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: { secure: "auto" },
+    store: new SequelizeStore({
+      db: sequelize
+    })
   })
 );
 
