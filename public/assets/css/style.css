@@ -13,6 +13,9 @@ body {
     display: flex;
     flex-direction: column;
     margin: 2%;
+    background-image: url('/public/assets/images/groceries.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 header {
@@ -59,7 +62,6 @@ nav ul li a:hover {
 }
 
 .hero-image {
-    background-image: url('/public/assets/images/groceries.jpg');
     background-color: var(--primaryColor);
     background-size: cover;
     background-position: center;
@@ -133,6 +135,14 @@ nav ul li a:hover {
     width: 150px;
 }
 
+.flat-box {
+    padding: 2%;
+    margin: 1%;
+    border: 1px solid #ccc; 
+    text-align: start; 
+    font-size: 18px;
+}
+
 button {
     margin: 1%;
     padding: 1%;
@@ -181,6 +191,28 @@ select {
     background-color: var(--primaryColor);
     color: white;
     border-radius: var(--roundedCorners);
+}
+
+.categories.container {
+    margin: 2%;
+    padding: 1%;
+}
+
+.categories.container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+}
+
+.categories.container li {
+    padding: 10px 15px;
+    background-color: #fff; /* Default background color for list items */
+}
+
+/* Apply gray background color for alternating rows */
+.categories.container li:nth-child(even) {
+    background-color: #f2f2f2; 
 }
 
 .hide {

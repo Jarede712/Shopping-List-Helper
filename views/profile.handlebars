@@ -2,8 +2,8 @@
     <h1>Your Profile</h1>
 </header>
 
-<section class="box user-profile"> 
-    <ul class="user-data">
+<section class="user-profile container"> 
+    <ul class="user-data flat-box">
         <li>
             Username: 
         </li>
@@ -13,8 +13,8 @@
     </ul>
 </section>
 
-<section class="box user-changes" action="/api/users/:{{user.id}}" method="PUT">
-        <form>
+<section class="user-changes container" action="/api/users/:{{user.id}}" method="PUT">
+        <form class="box">
         <label for"email" >Change Email: </label>
         <input type="text" id="change-email" name="email" required>
         <br>
