@@ -60,6 +60,7 @@ nav ul li a:hover {
 
 .hero-image {
     background-image: url('/public/assets/images/groceries.jpg');
+    background-color: var(--primaryColor);
     background-size: cover;
     background-position: center;
     height: 400px; 
@@ -67,8 +68,10 @@ nav ul li a:hover {
 
 .hero-content {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    margin: 2%;
+    padding: 2%;
 }
 
 .hero-heading {
@@ -76,11 +79,30 @@ nav ul li a:hover {
     font-size: 36px;
 }
 
+.hero-text {
+    color: white;
+    font-size: 24px;
+    margin: 2%;
+    padding: 2%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.container p {
+    margin: 1%;
+    padding: 1%;
+    font-size: 18px;
+}
+
+.container ol {
+    margin: 1%;
+    padding: 1%;
+    font-size: 18px;
 }
 
 .box {
@@ -94,15 +116,6 @@ nav ul li a:hover {
     font-size: 18px;
 }
 
-.box button {
-    width: 150px;
-}
-
-button {
-    margin: 2%;
-    padding: 2%;
-}
-
 .box label {
     display: flex;
     width: 100%;
@@ -114,6 +127,60 @@ button {
     width: 200px;
     padding: 5px;
     margin-bottom: 10px;
+}
+
+.box button {
+    width: 150px;
+}
+
+button {
+    margin: 1%;
+    padding: 1%;
+    background-color: var(--buttonColor);
+    color: white;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+#login-button {
+    margin: 2%;
+    padding: 2%;
+}
+
+#register-button {
+    margin: 2%;
+    padding: 2%;
+}
+
+button:hover {
+    background-color: var(--primaryColor); 
+}
+
+select {
+    margin: 1%;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.welcome-message {
+    margin: 2%;
+    padding: 2%;
+}
+
+.instructions {
+    background-color: var(--secondaryColor);
+    color: white;
+    margin: 2%;
+    padding: 2%;
+    border: 1px solid #ccc; 
+    border-radius: var(--roundedCorners);
+}
+
+#breeze {
+    background-color: var(--primaryColor);
+    color: white;
+    border-radius: var(--roundedCorners);
 }
 
 .hide {
