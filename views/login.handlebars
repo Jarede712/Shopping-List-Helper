@@ -2,7 +2,7 @@
 
     <h2>Login</h2>
 
-        <form class="login box" action="/login" method="POST">
+        <form class="login box" action="/api/users/login" method="POST">
             <label for="username">Username:</label>
             <input type="text" id="login-username" name="username" required>
         <br>
@@ -18,7 +18,7 @@
 
     <h2>Create a new account</h2>
 
-    <form class="register box"> <!-- action=[register] method=[post]-->
+    <form class="register box" action="/api/users" method="POST"> <!-- action=[register] method=[post]-->
         <label for"email">Enter Email: </label>
         <input type="text" id="register-email" name="email" required>
     <br>
