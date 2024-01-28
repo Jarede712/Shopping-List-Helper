@@ -18,10 +18,10 @@ app.use(express.static("public")); // make sure this directory exists
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: true, // change this to true
-    saveUninitialized: false, // change this to false
+    resave: true,
+    saveUninitialized: false,
     cookie: {
-      secure: false, // change this to false
+      secure: process.env.NODE_ENV === "production", // true in production, false in development
       maxAge: 60 * 60 * 1000,
     },
     store: new SequelizeStore({
