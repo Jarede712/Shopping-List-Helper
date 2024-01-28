@@ -15,6 +15,10 @@ app.use(express.json());
 app.use(express.static("public")); // make sure this directory exists
 
 // Session middleware
+const sessionStore = new SequelizeStore({
+  db: sequelize,
+});
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -24,11 +28,11 @@ app.use(
       secure: process.env.NODE_ENV === "production", // true in production, false in development
       maxAge: 60 * 60 * 1000,
     },
-    store: new SequelizeStore({
-      db: sequelize,
-    }),
+    store: sessionStore,
   })
 );
+
+sessionStore.sync();
 
 // Handlebars middleware
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
