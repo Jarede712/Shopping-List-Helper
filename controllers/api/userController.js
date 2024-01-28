@@ -49,7 +49,12 @@ router.post('/login', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
       
-      res.json({ user: userData, message: 'You are now logged in!' });
+      //res.json({ user: userData, message: 'You are now logged in!' });
+      res.render('home', {
+        //users,
+        // Pass the logged in flag to the template
+        logged_in: req.session.logged_in,
+      });
     });
 
   } catch (err) {
@@ -65,6 +70,31 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+// Update a user's information
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedUser = await User.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json(error);
+  }
+});
+
+// Get all user
+router.get("/", async (req, res) => {
+   try {
+     const users = await User.findAll();
+     res.json(users);
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 
@@ -157,15 +187,7 @@ module.exports = router;
 
 ///fix login: function
 
-  // Get all user
- // router.get("/", async (req, res) => {
-   // try {
-     // const users = await User.findAll();
-     // res.json(users);
-   // } catch (error) {
-     // res.status(500).json(error);
-   // }
-  //});
+  
 
 
   // Create a new user
