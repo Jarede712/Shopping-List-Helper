@@ -8,22 +8,25 @@ router.get("/", viewController.getHomePage);
 
 // User profile page route
 //router.get("/users/:id", viewController.getUserProfilePage);
-router.get("/login", viewController.getUserProfilePage);
+router.get("/login", viewController.getLoginPage);
 
 
 // Userlist page route
 //router.get("/userlists/:id", viewController.getUserlistPage);
-router.get("/pantry", viewController.getUserlistPage);
+router.get("/pantry", viewController.getPantryPage);
 
 // Categories page route
 //router.get("/categories", viewController.getCategoriesPage);
-router.get("/profile", viewController.getCategoriesPage);
+router.get("/profile", viewController.getProfilePage);
 
 
 // Inventory page route
 //router.get("/inventory", viewController.getInventoryPage);
-router.get("/shoppingList", viewController.getInventoryPage);
+router.get("/shoppingList", viewController.getShoppingListPage);
 
+router.get("/home", viewController.getHomePage);
+
+router.get("/categories", viewController.getCategoriesPage);
 
 // List page route
 //router.get("/lists/:id", viewController.getListPage);

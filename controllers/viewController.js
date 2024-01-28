@@ -14,7 +14,7 @@ exports.getHomePage = (req, res) => {
 
 };
 
-exports.getUserProfilePage = async (req, res) => {
+exports.getLoginPage = async (req, res) => {
   // Fetch user data, then render view
 
   //const user = await User.findByPk(req.params.id);
@@ -22,7 +22,7 @@ exports.getUserProfilePage = async (req, res) => {
   res.render("login");
 };
 
-exports.getUserlistPage = async (req, res) => {
+exports.getPantryPage = async (req, res) => {
   // Fetch userlist data, then render view
 
   //const userlist = await Userlist.findByPk(req.params.id);
@@ -30,7 +30,7 @@ exports.getUserlistPage = async (req, res) => {
   res.render("pantry");
 };
 
-exports.getCategoriesPage = async (req, res) => {
+exports.getProfilePage = async (req, res) => {
   // Fetch categories data, then render view
   
   //const categories = await Category.findAll();
@@ -38,7 +38,7 @@ exports.getCategoriesPage = async (req, res) => {
   res.render("profile");
 };
 
-exports.getInventoryPage = async (req, res) => {
+exports.getShoppingListPage = async (req, res) => {
   // Fetch inventory data, then render view
   
   //const inventory = await Inventory.findAll();
@@ -46,9 +46,10 @@ exports.getInventoryPage = async (req, res) => {
   res.render("shoppingList");
 };
 
-exports.getListPage = async (req, res) => {
+exports.getCategoriesPage = async (req, res) => {
   // Fetch list data, then render view
   
   //const list = await List.findByPk(req.params.id);
   //res.render("list", { list });
+  res.render("categories");
 };
