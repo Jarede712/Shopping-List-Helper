@@ -71,8 +71,6 @@ router.post("/logout", (req, res) => {
   }
 });
 
-// ... rest of your routes
-
 module.exports = router;
 
 // Update a user's information
@@ -86,7 +84,7 @@ router.put("/:id", async (req, res) => {
     res.json(updatedUser);
   } catch (error) {
     console.error(error);
-    res.status(404).json(error);
+    res.status(400).json(error);
   }
 });
 
@@ -257,4 +255,4 @@ module.exports = router;
 //}
 //});
 
-module.exports = router;
+//module.exports = router;
