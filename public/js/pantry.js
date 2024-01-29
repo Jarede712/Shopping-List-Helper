@@ -1,0 +1,28 @@
+const pantryList = document.getElementById('pantry-list');
+const nameInput = document.getElementById('name');
+const categoryInput = document.getElementById('category');
+const form = document.getElementById('pantry-form')
+
+// Function to add a new item to the pantry
+function addItemToPantry() {
+  const itemName = nameInput.value;
+  const category = categoryInput.value;
+
+  // Create a new list item
+  const newItem = document.createElement('li');
+  newItem.textContent = itemName;
+
+  // Append the item to the appropriate category
+  const categoryList = document.getElementById(`${category}-inventory`);
+  categoryList.appendChild(newItem);
+
+  // Clear the input fields
+  nameInput.value = '';
+  categoryInput.value = ''; // Reset to default
+}
+
+// Event listener for form submission
+form.addEventListener('submit', function (event) {
+event.preventDefault();
+addItemToPantry();
+});

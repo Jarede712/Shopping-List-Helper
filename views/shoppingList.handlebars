@@ -2,40 +2,48 @@
     <h1>Your Shopping List</h1>
 </header>
 
-<section class="shopping-page container">
+<section id="shopping-list" class="container">
+
     <div class="produce">
     <h2>Produce</h2>
-    <ul class="produce-list"></ul>
+    <ul id="produce-list"></ul>
     </div>
-        <div class="produce">
+
+    <div class="produce">
     <h2>Dairy</h2>
     <ul class="dairy-list"></ul>
     </div>
+
     <div class="protein">
     <h2>Protein</h2>
-    <ul class="protein-list"></ul>
+    <ul id="protein-list"></ul>
     </div>
-        <div class="dry">
+
+    <div class="dry">
     <h2>Dry Goods</h2>
-    <ul class="dry-list"></ul>
+    <ul id="dry-list"></ul>
     </div>
-        <div class="frozen">
+
+    <div class="frozen">
     <h2>Frozen</h2>
-    <ul class="frozen-list"></ul>
+    <ul id="frozen-list"></ul>
     </div>
+
     <div class="other">
     <h2>Other</h2>
-    <ul class="other-list"></ul>
+    <ul id="other-list"></ul>
     </div>
+
 </section>
 
 <section class="add-items container">
-    <form class="box"> 
+    <form id="shopping-list-form" class="box"> 
     <label for="name">Item Name:</label>
     <input type="text" id="name" name="name" required>
     <br>
     <label for="category">Category:</label>
     <select id="category" name="category" required>
+        <option value="">Choose category</option> <!-- Default option -->
         <option value="produce">Produce</option>
         <option value="dairy">Dairy</option>
         <option value="protein">Protein</option>
@@ -46,7 +54,7 @@
     <br>
         <button type="submit">Add to Shopping List</button>
     </form>
-    <!-- ADD NUMBER OF ITEMS NEEDED 
+    <!-- TO DO: ADD NUMBER OF ITEMS NEEDED 
     <br>
     <label for="quantity">Quantity:</label>
     <input type="number" id="quantity" name="quantity" required>
@@ -55,3 +63,5 @@
     </form>
     -->
 </section>
+
+<script src="/js/shoppingList.js"></script>
