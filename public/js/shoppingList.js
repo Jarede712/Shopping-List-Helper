@@ -1,4 +1,4 @@
-const shoppingList = document.getElementById('shopping-list');
+const shoppingList = document.getElementById('shopping-container');
 const nameInput = document.getElementById('name');
 const categoryInput = document.getElementById('category');
 const form = document.getElementById('shopping-list-form');
@@ -9,9 +9,14 @@ function addItemToShoppingList() {
   const category = categoryInput.value;
 
   // Create a new list item
-
   const newItem = document.createElement('li');
   newItem.textContent = itemName;
+  newItem.classList.add('new-item'); // Add the class for styling
+
+    // Create a checkbox element
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    newItem.appendChild(checkbox);
 
   // Append the item to the appropriate category
   const categoryList = document.getElementById(`${category}-list`);

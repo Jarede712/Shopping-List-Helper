@@ -1,4 +1,4 @@
-const pantryList = document.getElementById('pantry-list');
+const pantryList = document.getElementById('pantry-container');
 const nameInput = document.getElementById('name');
 const categoryInput = document.getElementById('category');
 const form = document.getElementById('pantry-form')
@@ -11,8 +11,14 @@ function addItemToPantry() {
   // Create a new list item
   const newItem = document.createElement('li');
   newItem.textContent = itemName;
+  newItem.classList.add('new-item'); // Add the class for styling
 
-  // Append the item to the appropriate category
+    // Create a checkbox element
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    newItem.appendChild(checkbox);
+
+   // Append the item to the appropriate category
   const categoryList = document.getElementById(`${category}-inventory`);
   categoryList.appendChild(newItem);
 

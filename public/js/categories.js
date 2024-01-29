@@ -12,8 +12,8 @@ async function fetchCategories() {
   }
 }
 
+// Function to add a new item to the pantry inventory
 function addCategoryToList(newCategory) {
-  // Create a new list item
   const listItem = document.createElement("li");
   listItem.textContent = newCategory;
 
@@ -22,6 +22,7 @@ function addCategoryToList(newCategory) {
   categoryList.appendChild(listItem);
 }
 
+// Event listener for form submission
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -38,7 +39,7 @@ form.addEventListener("submit", async (event) => {
     });
 
     if (response.ok) {
-      // Category added successfully, you can update your UI here
+      // Category added successfully
       console.log("Category added successfully");
       addCategoryToList(newCategory);
     } else {
