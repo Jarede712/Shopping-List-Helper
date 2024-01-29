@@ -5,7 +5,7 @@ const sequelize = require("./config/connection"); // Updated path to database co
 const session = require("express-session");
 const PORT = process.env.PORT || 3001;
 
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 
@@ -15,17 +15,24 @@ app.use(express.json());
 app.use(express.static("public")); // make sure this directory exists
 
 // Session middleware
+const sessionStore = new SequelizeStore({
+  db: sequelize,
+});
+
 app.use(
   session({
-    secret: process.env.SESSION_SECRET, // make sure this variable is in the .env file
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: "auto" },
-    store: new SequelizeStore({
-      db: sequelize
-    })
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production", // true in production, false in development
+      maxAge: 60 * 60 * 1000,
+    },
+    store: sessionStore,
   })
 );
+
+sessionStore.sync();
 
 // Handlebars middleware
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
