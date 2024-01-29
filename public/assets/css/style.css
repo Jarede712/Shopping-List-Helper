@@ -22,6 +22,7 @@ header {
     border-radius: 7px 7px 0 0;
 }
 
+/* Style the navbar */
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -32,10 +33,6 @@ nav ul {
 
 nav ul li {
     margin-right: 20px;
-}
-
-nav ul li.hide {
-    display: none;
 }
 
 nav ul li a {
@@ -190,6 +187,7 @@ button {
         border: 1px solid #ccc;
 }
 
+/* Change button color on hover */
 button:hover {
     background-color: var(--primaryColor); 
 }
@@ -220,6 +218,35 @@ select {
 /* Apply gray background color for alternating rows */
 .categories.container li:nth-child(even) {
     background-color: #f2f2f2; 
+}
+
+.pantry-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+}
+
+.shopping-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+}
+
+.new-item {
+    padding: 10px 15px;
+    background-color: #fff; /* Default background color for pantry items */
+}
+
+/* Apply gray background color for alternating rows */
+.new-item:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+.new-item input[type="checkbox"] {
+    margin-right: 14px; 
 }
 
 .hide {
