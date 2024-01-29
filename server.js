@@ -3,6 +3,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const sequelize = require("./config/connection"); // Updated path to database connection
 const session = require("express-session");
+const nodemailer = require('nodemailer');
 const PORT = process.env.PORT || 3001;
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -20,7 +21,7 @@ app.use(
     secret: process.env.SESSION_SECRET, // make sure this variable is in the .env file
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: "auto" },
+    cookie: { secure: false },
     store: new SequelizeStore({
       db: sequelize
     })
