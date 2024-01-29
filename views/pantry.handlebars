@@ -6,38 +6,38 @@
 <section class="pantry-page container">
     <div class="produce">
     <h2>Produce</h2>
-    <ul class="produce-list"></ul>
+    <ul id="produce-inventory"></ul>
     </div>
 
-    <div class="produce">
+    <div class="dairy">
     <h2>Dairy</h2>
-    <ul class="dairy-list"></ul>
+    <ul id="dairy-inventory"></ul>
     </div>
 
     <div class="protein">
     <h2>Protein</h2>
-    <ul class="protein-list"></ul>
+    <ul id="protein-inventory"></ul>
     </div>
 
     <div class="dry">
     <h2>Dry Goods</h2>
-    <ul class="dry-list"></ul>
+    <ul id="dry-inventory"></ul>
     </div>
 
     <div class="frozen">
     <h2>Frozen</h2>
-    <ul class="frozen-list"></ul>
+    <ul id="frozen-inventory"></ul>
     </div>
 
     <div class="other">
     <h2>Other</h2>
-    <ul class="other-list"></ul>
+    <ul class="other-inventory"></ul>
     </div>
 
 </section>
 
 <section class="add-items container">
-    <form class="box"> <!-- action=[add to inventory] method=[post]-->
+    <form class="box" action="/api/inventory" method="POST">
     <label for="name">Item Name:</label>
     <input type="text" id="name" name="name" required>
     <br>
