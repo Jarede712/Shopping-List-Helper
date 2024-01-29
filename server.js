@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars");
 const sequelize = require("./config/connection"); // Updated path to database connection
 const session = require("express-session");
 const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
 const PORT = process.env.PORT || 3001;
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
