@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { List, User } = require("../../models");
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 // Get all lists
-router.get("/", async (req, res) => {
+router.get("/", isAuthenticated, async (req, res) => {
   try {
     const lists = await List.findAll({ include: User });
     res.json(lists);
@@ -11,7 +12,7 @@ router.get("/", async (req, res) => {
   }
 }),
   // Get a single list by its id
-  router.get("/:id", async (req, res) => {
+  router.get("/:id", isAuthenticated, async (req, res) => {
     try {
       const list = await List.findOne({
         where: { list_id: req.params.id },
@@ -27,7 +28,7 @@ router.get("/", async (req, res) => {
   });
 
 // Create a new list
-router.post("/", async (req, res) => {
+router.post("/", isAuthenticated, async (req, res) => {
   try {
     const newList = await List.create(req.body);
     res.status(201).json(newList);
@@ -37,7 +38,7 @@ router.post("/", async (req, res) => {
 });
 
 // Update an existing list
-router.put("/:id", async (req, res) => {
+router.put("/:id", isAuthenticated, async (req, res) => {
   try {
     const updatedList = await List.update(req.body, {
       where: {
@@ -51,7 +52,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete a list
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", isAuthenticated, async (req, res) => {
   try {
     await List.destroy({
       where: {

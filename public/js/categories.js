@@ -1,52 +1,57 @@
-const form = document.getElementById('category-form')
+const form = document.getElementById("category-form");
 
-function addCategoryToList(newCategory) {
-    // Create a new list item 
-    const listItem = document.createElement('li');
-    listItem.textContent = newCategory;
+async function fetchCategories() {
+  const response = await fetch("/api/categories");
+  const categories = await response.json();
 
-    // Append the new category
-    const categoryList = document.getElementById('category-list');
-    categoryList.appendChild(listItem);
+  const categoryList = document.getElementById("category-list");
+  categoryList.innerHTML = ""; // Clear the list
+
+  for (const category of categories) {
+    addCategoryToList(category.name);
+  }
 }
 
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
+function addCategoryToList(newCategory) {
+  // Create a new list item
+  const listItem = document.createElement("li");
+  listItem.textContent = newCategory;
 
-    const formData = new FormData(form);
-    const newCategory = formData.get('name'); 
+  // Append the new category
+  const categoryList = document.getElementById("category-list");
+  categoryList.appendChild(listItem);
+}
 
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-// Add category to database
-    document.querySelector('form').addEventListener('submit', async (event) => {
-        event.preventDefault();
-    
-        const name = document.querySelector('#name').value;
-        
-        try {
-            const response = await fetch('/api/categories', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name }),
-        });
-        
-        if (response.ok) {
-            // Category added successfully, you can update your UI here
-            console.log('Category added successfully');
-        } else {
-            // Handle error
-            console.error('Failed to add category');
-        }
-        } catch (error) {
-        console.error('Network error:', error);
-        }
+  const formData = new FormData(form);
+  const newCategory = formData.get("name");
+
+  try {
+    const response = await fetch("/api/categories", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name: newCategory }),
     });
 
-    // If the category is added successfully, call the function to add it to the list
-    addCategoryToList(newCategory);
+    if (response.ok) {
+      // Category added successfully, you can update your UI here
+      console.log("Category added successfully");
+      addCategoryToList(newCategory);
+    } else {
+      // Handle error
+      console.error("Failed to add category");
+    }
+  } catch (error) {
+    console.error("Network error:", error);
+  }
 
-    // Reset the form
-    form.reset();
+  // Reset the form
+  form.reset();
 });
+
+// Fetch categories when the page is loaded
+fetchCategories();

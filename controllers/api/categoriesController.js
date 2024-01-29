@@ -1,9 +1,10 @@
 const router = require("express").Router();
 //const { User } = require('../../models');
 const { Categories } = require("../../models");
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 // Get all categories
-router.get("/", async (req, res) => {
+router.get("/", isAuthenticated, async (req, res) => {
   try {
     const categories = await Categories.findAll();
     res.json(categories);
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 // Get a single category by its id
-router.get("/:id", async (req, res) => {
+router.get("/:id", isAuthenticated, async (req, res) => {
   try {
     const category = await Categories.findOne({
       where: { id: req.params.id },
@@ -29,7 +30,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // Create a new category
-router.post("/", async (req, res) => {
+router.post("/", isAuthenticated, async (req, res) => {
   try {
     const newCategory = await Categories.create(req.body);
     res.status(201).json(newCategory);
@@ -39,7 +40,7 @@ router.post("/", async (req, res) => {
 });
 
 // Update an existing category
-router.put("/:id", async (req, res) => {
+router.put("/:id", isAuthenticated, async (req, res) => {
   try {
     const updatedCategory = await Categories.update(req.body, {
       where: {
@@ -53,7 +54,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete a category
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", isAuthenticated, async (req, res) => {
   try {
     await Categories.destroy({
       where: {
@@ -66,4 +67,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-module.exports = router; 
+module.exports = router;
