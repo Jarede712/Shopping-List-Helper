@@ -22,14 +22,13 @@ const sessionStore = new SequelizeStore({
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
+    resave: true,
+    saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === "production" ? true : false,
+      secure: process.env.NODE_ENV === "production", // true in production, false in development
+      maxAge: 60 * 60 * 1000,
     },
-    store: new SequelizeStore({
-      db: sequelize,
-    }),
+    store: sessionStore,
   })
 );
 
