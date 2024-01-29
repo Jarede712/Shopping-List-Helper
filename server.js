@@ -7,7 +7,7 @@ const session = require("express-session");
 // const jwt = require('jsonwebtoken');
 const PORT = process.env.PORT || 3001;
 
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 
@@ -17,17 +17,24 @@ app.use(express.json());
 app.use(express.static("public")); // make sure this directory exists
 
 // Session middleware
+const sessionStore = new SequelizeStore({
+  db: sequelize,
+});
+
 app.use(
   session({
-    secret: process.env.SESSION_SECRET, // make sure this variable is in the .env file
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
-    store: new SequelizeStore({
-      db: sequelize
-    })
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production", // true in production, false in development
+      maxAge: 60 * 60 * 1000,
+    },
+    store: sessionStore,
   })
 );
+
+sessionStore.sync();
 
 // Handlebars middleware
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -41,7 +48,7 @@ app.use("/", apiRoutes); // '/api' is the base URL for API routes
 app.use("/", htmlRoutes); // '/' is the base URL for HTML routes
 
 // Start the server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ alter: true }).then(() => {
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });

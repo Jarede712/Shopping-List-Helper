@@ -4,52 +4,32 @@ const Category = require("../models/Categories");
 const Inventory = require("../models/Inventories");
 const List = require("../models/List");
 
-
 exports.getHomePage = (req, res) => {
-  // Fetch data if necessary, then render view
-  //res.render("login");
-  res.render("home");
-  //res.render("pantry"); and //res.render("shoppingList"); are the same page
-  //res.render("profile");
-
+  res.render("home", { logged_in: req.session.logged_in });
 };
 
 exports.getLoginPage = async (req, res) => {
-  // Fetch user data, then render view
-
-  //const user = await User.findByPk(req.params.id);
-  //res.render("user", { user });
-  res.render("login");
+  res.render("login", { logged_in: req.session.logged_in });
 };
 
 exports.getPantryPage = async (req, res) => {
-  // Fetch userlist data, then render view
-
-  //const userlist = await Userlist.findByPk(req.params.id);
-  //res.render("userlist", { userlist });
-  res.render("pantry");
+  const userlist = await Userlist.findByPk(req.session.user_id);
+  res.render("pantry", { userlist, logged_in: req.session.logged_in });
 };
 
 exports.getProfilePage = async (req, res) => {
-  // Fetch categories data, then render view
-  
-  //const categories = await Category.findAll();
-  //res.render("categories", { categories });
-  res.render("profile");
+  const user = await User.findByPk(req.session.user_id);
+  res.render("profile", { user, logged_in: req.session.logged_in });
 };
 
 exports.getShoppingListPage = async (req, res) => {
-  // Fetch inventory data, then render view
-  
-  //const inventory = await Inventory.findAll();
-  //res.render("inventory", { inventory });
-  res.render("shoppingList");
+  const inventory = await Inventory.findAll({
+    where: { user_id: req.session.user_id },
+  });
+  res.render("shoppingList", { inventory, logged_in: req.session.logged_in });
 };
 
 exports.getCategoriesPage = async (req, res) => {
-  // Fetch list data, then render view
-  
-  //const list = await List.findByPk(req.params.id);
-  //res.render("list", { list });
-  res.render("categories");
+  const categories = await Category.findAll();
+  res.render("categories", { categories, logged_in: req.session.logged_in });
 };
