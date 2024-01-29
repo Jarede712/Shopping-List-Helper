@@ -3,7 +3,7 @@
 </header>
 
 <section class="categories container">
-    <ul>
+    <ul id="category-list">
         <li>Produce</li>
         <li>Dairy</li>
         <li>Protein</li>
@@ -14,10 +14,12 @@
 </section>
 
 <section class="edit-categories container">
-    <form class="box"> <!-- action=[add to inventory] method=[post]-->
+    <form id ="category-form" class="box"> 
     <label for="name">Category Name:</label>
     <input type="text" id="name" name="name" required>
     <br>
-        <button type="submit">Add Category</button>
+        <button id="add-category" type="submit">Add Category</button>
     </form>
 </section>
+
+<script src="/js/categories.js"></script>
