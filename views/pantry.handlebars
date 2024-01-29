@@ -1,9 +1,9 @@
-
 <header class="title">
     <h1>Your Pantry</h1>
 </header>
 
-<section class="pantry-page container">
+<section id="pantry-list" class="container">
+
     <div class="produce">
     <h2>Produce</h2>
     <ul id="produce-inventory"></ul>
@@ -31,18 +31,19 @@
 
     <div class="other">
     <h2>Other</h2>
-    <ul class="other-inventory"></ul>
-    </div>
+    <ul id="other-inventory"></ul>
+    </div> 
 
 </section>
 
 <section class="add-items container">
-    <form class="box" action="/api/inventory" method="POST">
+    <form id="pantry-form" class="box">
     <label for="name">Item Name:</label>
     <input type="text" id="name" name="name" required>
     <br>
     <label for="category">Category:</label>
     <select id="category" name="category" required>
+        <option value="">Choose category</option> <!-- Default option -->
         <option value="produce">Produce</option>
         <option value="dairy">Dairy</option>
         <option value="protein">Protein</option>
@@ -53,12 +54,15 @@
     <br>
         <button type="submit">Add to Shopping List</button>
     </form>
-    <!-- ADD NUMBER OF ITEMS IN INVENTORY
+{{!--     
+    TO DO: ADD NUMBER OF ITEMS IN INVENTORY
     <br>
     <label for="quantity">Quantity:</label>
     <input type="number" id="quantity" name="quantity" required>
     <br>
     <button type="submit">Add to inventory</button>
-    </form>
-    -->
+    </form> --}}
+    
 </section>
+
+<script src="/js/pantry.js"></script>
