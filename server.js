@@ -46,7 +46,7 @@ app.use("/", apiRoutes); // '/api' is the base URL for API routes
 app.use("/", htmlRoutes); // '/' is the base URL for HTML routes
 
 // Start the server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ alter: true }).then(() => {
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
