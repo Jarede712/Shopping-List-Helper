@@ -1,45 +1,43 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping List Helper</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
 
-<body>
+  <body>
 
     <header>
-        <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
 
-                {{#unless logged_in}}
-                <li><a href="/login">Login</a></li>
-                {{/unless}}
+          {{#unless logged_in}}
+            <li><a href="/login">Login</a></li>
+          {{/unless}}
 
-                {{#if logged_in}}
-                <li><a href="/pantry">Pantry</a></li>
-                <li><a href="/shoppingList">Shopping List</a></li>
-                <li><a href="/categories">Categories</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/home">Logout</a></li> 
-                {{/if}}
-            </ul>
-        </nav>
+          {{#if logged_in}}
+            <li><a href="/pantry">Pantry</a></li>
+            <li><a href="/shoppingList">Shopping List</a></li>
+            <li><a href="/categories">Categories</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a id="logout" href="/home">Logout</a></li>
+          {{/if}}
+        </ul>
+      </nav>
     </header>
 
     <main>
-        {{{ body }}}
+      {{{body}}}
     </main>
-    
+
     <footer>
     </footer>
-  {{#if logged_in}}
-  <script src="../../public/js/logout.js"></script>
-  {{/if}}
-
-</body>
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
 
 </html>

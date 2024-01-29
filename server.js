@@ -27,8 +27,8 @@ app.use(
     resave: true,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === "production", // true in production, false in development
-      maxAge: 60 * 60 * 1000,
+      secure: process.env.NODE_ENV === "development", // true in production, false in development
+      maxAge: null, // cookie will be deleted when the user closes their browser
     },
     store: sessionStore,
   })
