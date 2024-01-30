@@ -30,7 +30,7 @@ function addItemToPantry() {
 document.getElementById('remove-checked-items').addEventListener('click', function () {
   const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
 
-  // remove parent list items
+  // remove parent list items from pantry
   checkedCheckboxes.forEach(function (checkbox) {
     const listItem = checkbox.closest('li');
     if (listItem) {
