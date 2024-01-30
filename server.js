@@ -37,7 +37,7 @@ app.use(
 sessionStore.sync();
 
 // Handlebars middleware
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Routes
