@@ -33,3 +33,11 @@ exports.getCategoriesPage = async (req, res) => {
   const categories = await Category.findAll();
   res.render("categories", { categories, logged_in: req.session.logged_in });
 };
+
+exports.getRecoverPage = async (req, res) => {
+  res.render("recover", { logged_in: req.session.logged_in });
+};
+
+exports.getEmailPage = async (req, res) => {
+  res.render("email", { logged_in: req.session.logged_in });
+};

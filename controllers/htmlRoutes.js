@@ -29,6 +29,11 @@ router.get("/shoppingList", viewController.getShoppingListPage);
 
 router.get("/categories", viewController.getCategoriesPage);
 
+
+router.get("/recover", viewController.getRecoverPage);
+
+router.get("/email", viewController.getEmailPage);
+
 // List page route
 //router.get("/lists/:id", viewController.getListPage);
 
