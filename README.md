@@ -26,7 +26,16 @@ We want to help people save time, money, and energy with a program that will hel
 
 ## Demo
 
-![Screenshot](./public/assets/images/*screenshotLink*)
+![Screenshot](./public/assets/images/pantry-master.png)
+
+Create new categories to stay organized: 
+![Screenshot](./public/assets/images/categories-example.png)
+
+Add new items and choose a category: 
+![Screenshot](./public/assets/images/pantry-example.png)
+
+Check the boxes to keep track of your items:
+![Screenshot](./public/assets/images/shopping-list-example.png)
 
 ## License
 
